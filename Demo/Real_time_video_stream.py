@@ -5,8 +5,8 @@ cap = cv2.VideoCapture(0)
 #setup video size
 cap.set(3,690)
 cap.set(4,360)
-host  = 'your phones ip'
-port = 6667 #your receiving port
+host  = '192.168.3.17'
+port = 9921 #your receiving port
 bufsize = 1024.0
 addr = (host,port)
 udpClient = socket(AF_INET,SOCK_DGRAM)
