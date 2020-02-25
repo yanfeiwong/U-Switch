@@ -88,7 +88,7 @@ while 1:
 
     elif data=="next":
         nowplaying=nowplaying+1
-        if nowplaying>len(L):
+        if nowplaying>=len(L):
             nowplaying=0
         play(L[nowplaying])
         send("Playing"+L[nowplaying])
@@ -96,7 +96,7 @@ while 1:
     elif data=="last":
         nowplaying=nowplaying-1
         if nowplaying<0:
-            nowplaying=len(L)
+            nowplaying=len(L)-1
         play(L[nowplaying])
         send("Playing"+L[nowplaying])
     else:
