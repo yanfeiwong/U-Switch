@@ -124,9 +124,9 @@ class  Msg_Box(Thread):
     def run(self):
         if ISWIN:
             if self.Type == 0: #警告
-                ctypes.windll.user32.MessageBoxW(0,  "专心学习！", "不专心警告:",16)
+                ctypes.windll.user32.MessageBoxW(0,  "专心学习！", "不专心警告:",16+4096)
             if self.Type == 1: #其他消息
-                ctypes.windll.user32.MessageBoxW(0,  self.Text, "来自:"+self.addr,1)
+                ctypes.windll.user32.MessageBoxW(0,  self.Text, "来自:"+self.addr,1+4096)
         
 #异步摄像头启动
 class  Set_Webcam(Thread):
@@ -157,6 +157,6 @@ def get_host_ip():
 server_thread = Rec_Thread(r_udpServer)
 server_thread.start()
 #提示本机ip便于接收
-Msg_Box_thread = Msg_Box(1,"熊孩子监视器","本机IP:"+get_host_ip())
+Msg_Box_thread = Msg_Box(1,"熊孩子监视器","本机IP:"+get_host_ip()+"\n接收端口:"+str(r_port))
 Msg_Box_thread.start()
 
