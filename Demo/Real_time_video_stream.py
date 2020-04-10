@@ -23,5 +23,6 @@ while True:
           udpClient.sendto(data[i*int(bufsize):(i+1)*int(bufsize)],addr)#cut and send all cuts
       udpClient.sendto(("end").encode(),addr)#end message
       if cv2.waitKey(25) & 0xFF == 27:
+        udpClient.sendto(("clear").encode(),self.addr)
         cv2.destroyAllWindows()
         cap.release()
